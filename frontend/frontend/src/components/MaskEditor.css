@@ -1,0 +1,95 @@
+/* Container and Layout */
+.mask-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc;
+  padding-bottom: 50px;
+}
+
+.mask-container > div {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Canvas Area Styling */
+.canvas-wrapper {
+  position: relative;
+  border: 2px solid #2d3748;
+  background: #ffffff; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+canvas {
+  cursor: crosshair;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* FIXED: AI Scanning Animation - Top to Bottom */
+.canvas-wrapper.detecting::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #6366f1;
+  box-shadow: 0 0 15px 5px rgba(99, 102, 241, 0.6);
+  z-index: 10;
+  animation: scanningFull 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scanningFull {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* Button UI Components */
+button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-sec {
+  background: #edf2f7;
+  color: #4a5568;
+  border: 1px solid #cbd5e0;
+}
+
+.btn-ai {
+  background: #6366f1;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-ai:hover {
+  background: #4f46e5;
+}
+
+.mask-button {
+  background: #1e293b;
+  color: white;
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.upload-box {
+  transition: all 0.3s ease;
+}
